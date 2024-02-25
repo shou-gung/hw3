@@ -83,8 +83,22 @@ Node* llfilter(Node* head, Comp pred)
     //*********************************************
     // Provide your implementation below
     //*********************************************
+    
+    // returns if list is empty or reach end of list (base case)
+    if (head == NULL) {
+        return NULL;
+    }
 
-
+    // two cases: 
+    // removing from front of list and middle/end of list
+    if (pred(head->val)) {
+        Node *next = head->next;
+        delete head;
+        return llfilter(next, pred);
+    } else {
+        head->next = llfilter(head->next, pred);
+        return head;
+    }
 }
 
 #endif

@@ -68,7 +68,9 @@ void dealloc(Node* head)
 // -----------------------------------------------
 
 
-
+bool isOdd(int val) {
+    return val % 2 != 0;
+}
 
 
 int main(int argc, char* argv[])
@@ -87,9 +89,20 @@ int main(int argc, char* argv[])
 
     // Test out your linked list code
 
+    Node *smaller_head, *larger_head;
+    int pivot = 9;
 
+    llpivot(head, smaller_head, larger_head, pivot);
+    print(smaller_head);
+    print(larger_head);
 
-    
+    head = readList(argv[1]);
+    head = llfilter(head, &isOdd);
+    print(head);
+
+    dealloc(smaller_head);
+    dealloc(larger_head);
+    dealloc(head);
+
     return 0;
-
 }
