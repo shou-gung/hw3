@@ -25,6 +25,9 @@ public:
 template <typename T>
 Stack<T>::Stack() {}
 
+template <typename T>
+Stack<T>::~Stack() {}
+
 template<typename T>
 size_t Stack<T>::size() const {
     return data.size();
